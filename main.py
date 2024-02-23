@@ -3,10 +3,11 @@
 """
 def obt_inp():
     try:
-        inp = input().split()
+        inp = str(input()).split()
         return inp
     except ValueError:
         return "Error"
+
 def obt_rand(list):
     import random
     a = list[0]
@@ -17,5 +18,10 @@ def obt_rand(list):
             cen.append(list[x])
     random.shuffle(cen)
     palabra = " ".join(cen)
-    palabraFinal = a + " " + palabra + " " + z
-    return palabraFinal
+    palabrafinal = a + " " + palabra + " " + z
+    return palabrafinal
+def obt_ans(list):
+    for x in list:
+        obt_rand(x)
+    frase = frase +
+
