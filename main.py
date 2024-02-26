@@ -3,25 +3,30 @@
 """
 import random
 
+def caracteres(palabra):
+    cen = list(palabra[1:-2])
+    random.shuffle(cen)
+    return palabra[0] + ''.join(cen) + palabra[-2] + palabra[-1]
 
-def desordenar_palabra(palabra):
+def desordPal(palabra):
    if len(palabra) <= 2:
        return palabra
+   elif palabra[-1] == "," or "." or "!" or "?":
+       return caracteres(palabra)
    else:
        cen = list(palabra[1:-1])
        random.shuffle(cen)
        return palabra[0] + ''.join(cen) + palabra[-1]
 
-
 def dividirFrase(frase):
    palabras = frase.split()
-   palDesord = [desordenar_palabra(palabra) for palabra in palabras]
+   palDesord = [desordPal(palabra) for palabra in palabras]
    return ' '.join(palDesord)
 
 
 frase = input("Introduce una frase: ")
-frase_desord = dividirFrase(frase)
+fraseDesord = dividirFrase(frase)
 
 
 print("Frase original:", frase)
-print("Frase desordenada:", frase_desordenada)
+print("Frase desordenada:", fraseDesord)
