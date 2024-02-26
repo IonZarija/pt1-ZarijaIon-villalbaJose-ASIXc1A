@@ -1,21 +1,27 @@
 """
 
 """
-def obt_inp():
-    try:
-        inp = input().split()
-        return inp
-    except ValueError:
-        return "Error"
-def obt_rand(list):
-    import random
-    a = list[0]
-    z = list[-1]
-    cen = []
-    for x in list:
-        if x != 0 or x -1:
-            cen.append(list[x])
-    random.shuffle(cen)
-    palabra = " ".join(cen)
-    palabraFinal = a + " " + palabra + " " + z
-    return palabraFinal
+import random
+
+
+def desordenar_palabra(palabra):
+   if len(palabra) <= 2:
+       return palabra
+   else:
+       cen = list(palabra[1:-1])
+       random.shuffle(cen)
+       return palabra[0] + ''.join(cen) + palabra[-1]
+
+
+def dividirFrase(frase):
+   palabras = frase.split()
+   palDesord = [desordenar_palabra(palabra) for palabra in palabras]
+   return ' '.join(palDesord)
+
+
+frase = input("Introduce una frase: ")
+frase_desord = dividirFrase(frase)
+
+
+print("Frase original:", frase)
+print("Frase desordenada:", frase_desordenada)
